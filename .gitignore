@@ -1,2 +1,4 @@
 jsencrypt.js
 jsencrypt.min.js
+phpseclib/*
+
