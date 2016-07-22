@@ -61,7 +61,7 @@ if(isset($_POST["cusr"]) && isset($_POST["cpwd"])){
 	
 	if(password_verify($ppwd, $hash) == true){
 		$_SESSION["access_granted"] = 1;
-		redirect();
+		redirect($target_address);
 	}
 	
 
@@ -76,7 +76,7 @@ if(isset($_POST["cusr"]) && isset($_POST["cpwd"])){
 <head>
 <title>Login</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="jsencrypt.js"></script>
+<script type="text/javascript" src="jsencrypt.min.js"></script>
 </head>
 <body>
 
