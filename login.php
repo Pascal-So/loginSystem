@@ -24,7 +24,7 @@ if(isset($_SESSION["access_granted"]) && $_SESSION["access_granted"]==1){
 	redirect($target_address);
 }
 
-include('admin.php');
+include('sqlConfig.php');
 
 set_include_path(get_include_path() . PATH_SEPARATOR . "phpseclib");
 include('Crypt/RSA.php');
