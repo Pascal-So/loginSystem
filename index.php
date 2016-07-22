@@ -7,9 +7,10 @@
 // set session variable "access_granted" to 1
 //
 
+/*
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 session_start();
 
 $target_address = "http://example.com";
@@ -30,6 +31,7 @@ include('Crypt/RSA.php');
 $sql_tablename = "users";
 
 $rsa=new Crypt_RSA();
+
 
 
 if(!isset($_SESSION['private'])){
@@ -57,9 +59,11 @@ if(isset($_POST["cusr"]) && isset($_POST["cpwd"])){
 	$stm->bind_result($hash);
 	$stm->fetch();
 	
-	$login_ok = password_verify($ppwd, $hash);	
+	if(password_verify($ppwd, $hash) == true){
+		$_SESSION["access_granted"] = 1;
+		redirect();
+	}
 	
-	echo $ppwd . "<br>";
 
 	$stm->close();
 
